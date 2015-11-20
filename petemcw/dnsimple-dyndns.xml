@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Beta>False</Beta>
+  <Category>Network:Other Tools:</Category>
+  <Date>2015-11-19</Date>
+  <Name>DNSimple DynDNS</Name>
+  <Overview>A dynamic DNS updater container for users of DNSimple domain management.</Overview>
+  <Description>Dynamic DNS services provide the ability to update the DNS record for a given device automatically. This container is for users of DNSimple domain management.[br][br]
+  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+  [b]LOGIN:[/b] DNSimple email address [br]
+  [b]TOKEN:[/b] DNSimple API token [br]
+  [b]RECORD_ID:[/b] DNSimple record ID for the record to keep updated [br]
+  [b]DOMAIN_ID:[/b] Domain associated with the record to keep updated [br]
+  [b]/config[/b]Storage of dynamic DNS shell script[br]
+  </Description>
+  <Project>https://developer.dnsimple.com/ddns/</Project>
+  <Registry>https://registry.hub.docker.com/u/petemcw/docker-dnsimple-dyndns/</Registry>
+  <GitHub>https://github.com/petemcw/docker-dnsimple-dyndns</GitHub>
+  <Repository>petemcw/docker-dnsimple-dyndns</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+    <Variable>
+      <Name>LOGIN</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>TOKEN</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>RECORD_ID</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>DOMAIN_ID</Name>
+      <Value></Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/dnsimple</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Version/>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <WebUI>https://dnsimple.com/domains/[DOMAIN_ID]/records/[RECORD_ID]/edit</WebUI>
+  <Banner>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/dnsimple-banner.png</Banner>
+  <Icon>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/dnsimple-icon.png</Icon>
+  <ExtraParams/>
+</Container>
