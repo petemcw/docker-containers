@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Beta>False</Beta>
+  <Category>Network:Web Network:Proxy</Category>
+  <Date>2015-11-22</Date>
+  <Name>Apache</Name>
+  <Overview>This is an apache web server docker with reverse proxy services enabled. Reverse proxy gives the ability going to www.domain.com:8351 for a service, you can go direct to www.domain.com/service and also enable HTTPS.</Overview>
+  <Description>This is an apache web server docker with reverse proxy services enabled. Reverse proxy gives the ability going to www.domain.com:8351 for a service, you can go direct to www.domain.com/service and also enable HTTPS.[br]
+  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+  [b]80[/b] Standard HTTP Port [br]
+  [b]443[/b] Standard HTTPS Port [br]
+  [b]/config[/b]Storing Configuration and the www folder[br]
+  </Description>
+  <Project>http://httpd.apache.org/docs/2.2/mod/mod_proxy.html</Project>
+  <Registry>https://registry.hub.docker.com/u/petemcw/docker-apache/</Registry>
+  <GitHub>https://github.com/petemcw/docker-apache</GitHub>
+  <Repository>petemcw/docker-apache</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>80</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>443</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/apache</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Version/>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <Banner>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/apache-banner.png</Banner>
+  <Icon>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/apache-icon.png</Icon>
+  <ExtraParams/>
+</Container>
