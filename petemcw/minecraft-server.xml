@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Beta>False</Beta>
+  <Category>Games</Category>
+  <Date>2016-02-12</Date>
+  <Name>Minecraft Server</Name>
+  <Overview>A vanilla Minecraft game server.</Overview>
+  <Description>Minecraft is a game about breaking and placing blocks. At first, people built structures to protect against nocturnal monsters, but as the game grew players worked together to create wonderful, imaginative things.[br][br]
+  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+  [b]/src[/b]Storage of Minecraft configuration and world data[br]
+  [b][span style='color: #E80000;']IMPORTANT - Open Advanced View to set environment variables. EULA/DEFAULT_OP are required.[/b][/span][br]
+  </Description>
+  <Project>https://minecraft.net/</Project>
+  <Registry>https://registry.hub.docker.com/u/petemcw/docker-minecraft-server/</Registry>
+  <GitHub>https://github.com/petemcw/docker-minecraft-server</GitHub>
+  <Repository>petemcw/docker-minecraft-server</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+    <Variable>
+      <Name>EULA</Name>
+      <Value>true</Value>
+    </Variable>
+    <Variable>
+      <Name>DEFAULT_OP</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>VERSION</Name>
+      <Value>latest</Value>
+    </Variable>
+    <Variable>
+      <Name>LEVEL_SEED</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>DIFFICULTY</Name>
+      <Value>2</Value>
+    </Variable>
+    <Variable>
+      <Name>GAMEMODE</Name>
+      <Value>0</Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>25565</HostPort>
+        <ContainerPort>25565</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/minecraft</HostDir>
+      <ContainerDir>/src</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Version/>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <Banner>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/minecraft-banner.png</Banner>
+  <Icon>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/minecraft-icon.png</Icon>
+  <ExtraParams/>
+</Container>
