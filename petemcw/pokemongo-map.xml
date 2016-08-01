@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Beta>False</Beta>
+  <Category>Games</Category>
+  <Date>2016-08-01</Date>
+  <Name>Pokémon Go Map</Name>
+  <Overview>Live visualization of all the Pokémon in your area.</Overview>
+  <Description>Helps you catch them all by locating close Pokémon using the Niantic API.[br][br]
+  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+  [b]/app[/b]Storage of Pokémon Go Map configuration and repository data[br]
+  [b][span style='color: #E80000;']IMPORTANT - Open Advanced View to set environment variables. USERNAME/PASSWORD/GMAPS_KEY are required.[/b][/span][br]
+  </Description>
+  <Project>https://github.com/AHAAAAAAA/PokemonGo-Map</Project>
+  <Registry>https://registry.hub.docker.com/u/petemcw/docker-pokemongo-map/</Registry>
+  <GitHub>https://github.com/petemcw/docker-pokemongo-map</GitHub>
+  <Repository>petemcw/docker-pokemongo-map</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+    <Variable>
+      <Name>BRANCH</Name>
+      <Value>develop</Value>
+    </Variable>
+    <Variable>
+      <Name>AUTH_SERVICE</Name>
+      <Value>ptc</Value>
+    </Variable>
+    <Variable>
+      <Name>USERNAME</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>PASSWORD</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>GMAPS_KEY</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>LOCATION</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>NUM_THREADS</Name>
+      <Value>1</Value>
+    </Variable>
+    <Variable>
+      <Name>SCAN_DELAY</Name>
+      <Value>5</Value>
+    </Variable>
+    <Variable>
+      <Name>STEP_LIMIT</Name>
+      <Value>12</Value>
+    </Variable>
+    <Variable>
+      <Name>HOST</Name>
+      <Value>0.0.0.0</Value>
+    </Variable>
+    <Variable>
+      <Name>PORT</Name>
+      <Value>5000</Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>5000</HostPort>
+        <ContainerPort>5000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/pokemongo</HostDir>
+      <ContainerDir>/app</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Version/>
+  <WebUI>http://[IP]:[PORT:5000]/</WebUI>
+  <Banner>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/pokemon-go-banner.png</Banner>
+  <Icon>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/pokemon-go-icon.png</Icon>
+  <ExtraParams/>
+</Container>
