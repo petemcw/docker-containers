@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Beta>False</Beta>
+  <Category>MediaServer:Video MediaServer:Music MediaServer:Photos</Category>
+  <Date>2016-12-23</Date>
+  <Name>plex</Name>
+  <Overview>Plex organizes video, music and photos and streams them to a variety of devices.</Overview>
+  <Description>Plex organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices.[br][br]
+  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+  The following are the recommended parameters. Each of the following parameters to the container are treated as first-run parameters only. [br][br]
+  [b]HOSTNAME[/b] Sets the hostname inside the docker container. [br]
+  [b]TZ[/b] Set the timezone inside the container. [br]
+  [b]PLEX_CLAIM[/b] The claim token for the server to obtain a real server token. [br]
+  [b]ADVERTISE_IP[/b] This variable defines the additional IPs on which the server may be be found. For example: http://10.1.1.23:32400. [br][br]
+  These parameters are usually not required but some special setups may benefit from their use. As in the previous section, each is treated as first-run parameters only: [br][br]
+  [b]PLEX_UID[/b] The user id of the plex user created inside the container. [br]
+  [b]PLEX_GID[/b] The group id of the plex group created inside the container. [br]
+  [b]CHANGE_CONFIG_DIR_OWNERSHIP[/b] Change ownership of config directory to the plex user. Defaults to true. [br]
+  [b]ALLOWED_NETWORKS[/b] IP/netmask entries which allow access to the server without requiring authorization. [br][br]
+  [b]/config[/b] Where plex should store settings, metadata/logs, and configuration[br]
+  [b]/media[/b] Map this to your media, you can use several submappings here[br]
+  </Description>
+  <Project>https://plex.tv/</Project>
+  <Registry>https://hub.docker.com/r/plexinc/pms-docker/</Registry>
+  <GitHub>https://github.com/plexinc/pms-docker</GitHub>
+  <Repository>plexinc/pms-docker</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PLEX_UID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PLEX_GID</Name>
+      <Value>100</Value>
+    </Variable>
+    <Variable>
+      <Name>TZ</Name>
+      <Value>America/Chicago</Value>
+    </Variable>
+    <Variable>
+      <Name>HOSTNAME</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>PLEX_CLAIM</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>ADVERTISE_IP</Name>
+      <Value></Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/plex</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:32400]/web</WebUI>
+  <Banner>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/plex-banner.png</Banner>
+  <Icon>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/plex-icon.png</Icon>
+  <BaseImage>ubuntu:16.04</BaseImage>
+  <ExtraParams/>
+</Container>
