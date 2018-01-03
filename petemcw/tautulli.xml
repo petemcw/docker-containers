@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Beta>False</Beta>
+  <Category>MediaServer:Other Tools:</Category>
+  <Date>2018-01-02</Date>
+  <Name>tautulli</Name>
+  <Overview>Tautulli is a python-based statistics manager for Plex.</Overview>
+  <Description>Tautulli runs alongside your Plex Media Server to monitor activity and track various statistics.[br][br]
+  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+  The following are the recommended parameters. Each of the following parameters to the container are treated as first-run parameters only. [br][br]
+  [b]PUID[/b] The user id of the user created inside the container. [br]
+  [b]PGID[/b] The group id of the group created inside the container. [br]
+  [b]/config[/b] Where Tautulli should store settings, database, and configuration[br]
+  [b]/logs[/b] Map to your Plex logs (required for IP logging)[br]
+  </Description>
+  <Project>http://tautulli.com/</Project>
+  <Registry>https://registry.hub.docker.com/u/petemcw/docker-tautulli/</Registry>
+  <GitHub>https://github.com/petemcw/docker-tautulli</GitHub>
+  <Repository>petemcw/docker-tautulli</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8181</HostPort>
+        <ContainerPort>8181</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/tautulli</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/logs</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:8181]</WebUI>
+  <Banner>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/tautulli-banner.png</Banner>
+  <Icon>https://raw.githubusercontent.com/petemcw/docker-templates/master/petemcw/img/tautulli-icon.png</Icon>
+  <BaseImage>lsiobase/alpine.python.armhf:3.6</BaseImage>
+  <ExtraParams/>
+</Container>
